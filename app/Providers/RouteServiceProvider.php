@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
+// the class is about setting route
+// it relates routes folder
 class RouteServiceProvider extends ServiceProvider
 {
     /**

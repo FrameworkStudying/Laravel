@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// you can access the route setting with URI host_address/hw
+Route::get('/hw', function() {
+	return 'Hello World';
+});

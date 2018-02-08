@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// you can access the route setting with URI host_address/api/hw
+Route::get('/hw', function (Request $request) {
+    return 'Hello World!';
+});
