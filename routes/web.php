@@ -17,5 +17,7 @@ Route::get('/', function () {
 
 // you can access the route setting with URI host_address/hw
 Route::get('/hw', function() {
-	return 'Hello World';
+    return 'Hello World';
 });
+
+Route::get('/helloworld', 'HelloWorldController@say');
