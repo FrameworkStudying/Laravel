@@ -17,4 +17,9 @@ class HelloWorldController extends Controller
     {
         return 'Hello World!!!';
     }
+
+    public function __invoke()
+    {
+    	return 'Hello World!!!(in single action)';
+    }
 }
