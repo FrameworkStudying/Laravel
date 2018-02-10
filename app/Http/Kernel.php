@@ -48,6 +48,8 @@ class Kernel extends HttpKernel
      *
      * These middleware may be assigned to groups or used individually.
      *
+     * The key of array, you can use it in route file to include a middleware
+     *
      * @var array
      */
     protected $routeMiddleware = [
