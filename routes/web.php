@@ -21,3 +21,4 @@ Route::get('/hw', function() {
 });
 
 Route::get('/helloworld', 'HelloWorldController@say');
+Route::get('/helloworldinTest', 'Test\HelloWorldController@say');
