@@ -15,6 +15,11 @@ class HelloWorldController extends Controller
      */
     public function say()
     {
-        return 'Hello World!!!(in Test folder)';
+        $contents = [
+            'content' => 'Hello World !!!!! (Comes from test/hello_world blade template)'
+        ];
+        // you can set the folder name(likes A) in front of template name
+        // then the controller will load the template in A folder in views folder  
+        return view('test/hello_world', $contents);
     }
 }
