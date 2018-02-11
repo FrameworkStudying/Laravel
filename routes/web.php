@@ -22,4 +22,5 @@ Route::get('/hw', function() {
 
 Route::get('/helloworld', 'HelloWorldController@say');
 Route::get('/helloworldinTest', 'Test\HelloWorldController@say');
+Route::get('/helloworldinTestSAC', 'Test\HelloWorldController@sayAndCheck');
 Route::get('/helloworldsingle', 'HelloWorldController');
