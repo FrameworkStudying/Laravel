@@ -40,6 +40,20 @@ class HelloWorldController extends Controller
         } else {
             return 'test/hello_world template is not exist';
         }
-        
+    }
+
+    public function sayWithFirst()
+    {
+        $contents = [
+            'content' => 'Hello World !!!!! (check test/hello_world whether the template exists)'
+        ];
+        // you can use the function to set a list of template options,
+        // it will check the templates whether each template exists from index 0 to index n
+        // the smaller index is found to exist, then controller will load the template as first choice 
+        // you could include Illuminate\Support\Facades\View for calling function when you want to use View::first
+        return View::first(
+            ['test.hello_world1', 'hello_world1', 'hello_world'],
+            $contents
+        );
     }
 }
