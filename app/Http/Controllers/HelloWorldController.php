@@ -15,7 +15,10 @@ class HelloWorldController extends Controller
      */
     public function say()
     {
-        return 'Hello World!!!';
+        $contents = [
+            'content' => 'Hello World !!!!! (Comes from hello_world blade template)'
+        ];
+        return view('hello_world', $contents);
     }
 
     public function __invoke()
