@@ -77,8 +77,9 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => 'en',
+    // the value is used for local language setting
+    // the value is same to folder name in resources/lang
+    'locale' => 'zh-Hans',
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +91,9 @@ return [
     | the language folders that are provided through your application.
     |
     */
-
+    // the value is used for default language setting
+    // the file will be loaded when the local language does not exist
+    // the value is same to folder name in resources/lang
     'fallback_locale' => 'en',
 
     /*

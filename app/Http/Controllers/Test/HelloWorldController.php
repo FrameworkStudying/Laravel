@@ -6,6 +6,9 @@ namespace App\Http\Controllers\Test;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 
+// if you want to use App Class, then you should include App
+use App;
+
 class HelloWorldController extends Controller
 {
     /**
@@ -23,8 +26,10 @@ class HelloWorldController extends Controller
         return view('test/hello_world', $contents);
     }
 
-    public function sayAndCheck()
+    public function sayAndCheckEn()
     {
+        // you can use this way to change local language setting
+        App::setLocale('en');
         $contents = [
             'content' => 'Hello World !!!!! (check test/hello_world whether the template exists)'
         ];
@@ -35,6 +40,25 @@ class HelloWorldController extends Controller
             // if you want to make controller loading template in a deeper folder(likes A) in views folder
             // also you can connect template name after A folder name by a dot likes below 
             return view('test.hello_world', $contents);
+        } elseif (View::exists('test.hello_world')) {
+            return view('test.hello_world', $contents);
+        } else {
+            return 'test/hello_world template is not exist';
+        }
+    }
+
+    public function sayAndCheckZh()
+    {
+        $contents = [
+            'content' => 'Hello World !!!!! (check test/hello_world whether the template exists)'
+        ];
+        
+        // the check template function is a method of Illuminate\Support\Facades\View
+        // you could include Illuminate\Support\Facades\View for calling function when you want to use View::exists function
+        if (View::exists('test/hello_world1')) {
+            // if you want to make controller loading template in a deeper folder(likes A) in views folder
+            // also you can connect template name after A folder name by a dot likes below 
+            return view('test.hello_world1', $contents);
         } elseif (View::exists('test.hello_world')) {
             return view('test.hello_world', $contents);
         } else {
