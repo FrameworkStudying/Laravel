@@ -24,5 +24,6 @@ Route::get('/helloworld', 'HelloWorldController@say');
 Route::get('/helloworldinTest', 'Test\HelloWorldController@say');
 Route::get('/helloworldinTestSACE', 'Test\HelloWorldController@sayAndCheckEn');
 Route::get('/helloworldinTestSACZ', 'Test\HelloWorldController@sayAndCheckZh');
-Route::get('/helloworldinTestSWF', 'Test\HelloWorldController@sayWithFirst');
+Route::get('/helloworldinTestSWF', '\TestHelloWorldController@sayWithFirst');
 Route::get('/helloworldsingle', 'HelloWorldController');
+Route::get('/dbtest', 'Test\DbTestController');

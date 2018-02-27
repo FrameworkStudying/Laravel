@@ -41,15 +41,34 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            // this is connection of slaver DB server in replication
+            'read' => [
+                'host' => env('DB_HOST_SLAVE', '127.0.0.1'),
+                'database' => env('DB_DATABASE_SLAVE', 'forge'),
+                'port' => env('DB_PORT_SLAVE', '3306'),
+                'username' => env('DB_USERNAME_SLAVE', 'forge'),
+                'password' => env('DB_PASSWORD_SLAVE', ''),
+                'prefix' => '',
+
+            ],
+            // this is connection of master DB server in replication
+            'write' => [
+                'host' => env('DB_HOST_MASTER', '127.0.0.1'),
+                'database' => env('DB_DATABASE_MASTER', 'forge'),
+                'port' => env('DB_PORT_MASTER', '3306'),
+                'username' => env('DB_USERNAME_MASTER', 'forge'),
+                'password' => env('DB_PASSWORD_MASTER', ''),
+                'prefix' => '',
+            ],
+            // this is an optional setting, set as true will allow the immediate reading of records which have been written to the database 
+            // during the current request cycle
+            // in the replication case, if sticky set as true, then 
+            // a 'write' operation has been proformed against the database during the current request cycle, any futher 'read' operations will use the 
+            // 'write' connection of replication
+            'sticky' => env('DB_STICKY', 'false'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
             'strict' => true,
             'engine' => null,
         ],
