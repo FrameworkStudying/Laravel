@@ -26,4 +26,9 @@ Route::get('/helloworldinTestSACE', 'Test\HelloWorldController@sayAndCheckEn');
 Route::get('/helloworldinTestSACZ', 'Test\HelloWorldController@sayAndCheckZh');
 Route::get('/helloworldinTestSWF', '\TestHelloWorldController@sayWithFirst');
 Route::get('/helloworldsingle', 'HelloWorldController');
+
 Route::get('/dbtest', 'Test\DbTestController');
+Route::get('/dbtestSRID', 'Test\DbTestController@selectRowsInDb');
+Route::get('/dbtestSRWCID', 'Test\DbTestController@selectRowsWithConditionInDb');
+Route::get('/dbtestSORWCID', 'Test\DbTestController@selectOneRowWithConditionInDb');
+Route::get('/dbtestIRID', 'Test\DbTestController@insertRowInDb');
