@@ -32,3 +32,5 @@ Route::get('/dbtestSRID', 'Test\DbTestController@selectRowsInDb');
 Route::get('/dbtestSRWCID', 'Test\DbTestController@selectRowsWithConditionInDb');
 Route::get('/dbtestSORWCID', 'Test\DbTestController@selectOneRowWithConditionInDb');
 Route::get('/dbtestIRID', 'Test\DbTestController@insertRowInDb');
+Route::get('/dbtestQTCID', 'Test\DbTestController@queryTransactionClosureInDb');
+Route::get('/dbtestQTID', 'Test\DbTestController@queryTransactionInDb');
