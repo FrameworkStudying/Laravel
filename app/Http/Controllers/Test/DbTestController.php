@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 // you should import the DB package when you want to use DB class
 use Illuminate\Support\Facades\DB;
+// you should import the Redis package when you want to use Redis class
+use Illuminate\Support\Facades\Redis;
 
 class DbTestController extends Controller
 {
@@ -113,4 +115,38 @@ class DbTestController extends Controller
         return view('test.db_test', $contents);
     }
 
+    public function queryGetInRedis()
+    {
+        $userName = 'core';
+        $result = Redis::get('user-name-'.$userName);
+        $contents = [
+            'content' => $result,
+            'rows' => array()
+        ];
+        return view('test.db_test', $contents);
+    }
+
+    public function setInRedis()
+    {
+        $userName = 'core';
+        // if the porcess is run completely, then the response will be 1
+        $result = Redis::set('user-name-'.$userName, 'Xiang Hou');
+        $contents = [
+            'content' => $result,
+            'rows' => array()
+        ];
+        return view('test.db_test', $contents);
+    }
+
+    public function updateIndexListInRedis()
+    {
+        $listName = "name-list";
+        // if the porcess is run completely, then the response will be 1
+        $result = Redis::lset($listName, 0, 'BuBu');
+        $contents = [
+            'content' => $result,
+            'rows' => array()
+        ];
+        return view('test.db_test', $contents);
+    }
 }

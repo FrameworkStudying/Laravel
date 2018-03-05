@@ -34,3 +34,6 @@ Route::get('/dbtestSORWCID', 'Test\DbTestController@selectOneRowWithConditionInD
 Route::get('/dbtestIRID', 'Test\DbTestController@insertRowInDb');
 Route::get('/dbtestQTCID', 'Test\DbTestController@queryTransactionClosureInDb');
 Route::get('/dbtestQTID', 'Test\DbTestController@queryTransactionInDb');
+Route::get('/dbtestQGIR', 'Test\DbTestController@queryGetInRedis');
+Route::get('/dbtestSIR', 'Test\DbTestController@setInRedis');
+Route::get('/dbtestUILIR', 'Test\DbTestController@updateIndexListInRedis');
