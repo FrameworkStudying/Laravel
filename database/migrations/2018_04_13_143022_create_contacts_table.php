@@ -15,6 +15,9 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('firstname', 30);
+            $table->string('lastname', 30);
+            $table->boolean('is_regular')->default(0);
             $table->timestamps();
         });
     }
