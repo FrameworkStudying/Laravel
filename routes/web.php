@@ -39,3 +39,4 @@ Route::get('/dbtestSIR', 'Test\DbTestController@setInRedis');
 Route::get('/dbtestUILIR', 'Test\DbTestController@updateIndexListInRedis');
 
 Route::get('/contact/{id}', 'ContactController@retrieve');
+Route::get('/contactUpdateUUID/{id}', 'ContactController@updateUUID');
