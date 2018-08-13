@@ -20,7 +20,7 @@ class ContactController extends Controller
 
     public function retrieve(Request $request)
     {
-        # A ModelNotFoundExcepption will be return if a model is not found.
+        // A ModelNotFoundExcepption will be return if a model is not found.
         $contact = Contact::findOrFail($request->id);
         $contents = [
             'content' => $contact
@@ -35,11 +35,13 @@ class ContactController extends Controller
         $contact->uuid = Uuid::uuid1();
         $msg = 'failure';
         if ($contact->save()) {
-            $contact = Contact::findOrFail($request->id);
+            $contact->uuid = '';
+            // Reload current model from DB
+            $contact->refresh();
             $msg = $oldUUid == $contact->uuid ? 'failure' : 'successfully';
         }
         $contents = [
-            'content' => 'UUID update '.$msg.'!'
+            'content' => 'UUID update '.$msg.'! '.'UUID is '.$contact->uuid
         ];
         return view('hello_world', $contents);
     }
