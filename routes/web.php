@@ -24,7 +24,7 @@ Route::get('/helloworld', 'HelloWorldController@say');
 Route::get('/helloworldinTest', 'Test\HelloWorldController@say');
 Route::get('/helloworldinTestSACE', 'Test\HelloWorldController@sayAndCheckEn');
 Route::get('/helloworldinTestSACZ', 'Test\HelloWorldController@sayAndCheckZh');
-Route::get('/helloworldinTestSWF', '\TestHelloWorldController@sayWithFirst');
+Route::get('/helloworldinTestSWF', 'Test\HelloWorldController@sayWithFirst');
 Route::get('/helloworldsingle', 'HelloWorldController');
 
 Route::get('/dbtest', 'Test\DbTestController');
@@ -37,3 +37,5 @@ Route::get('/dbtestQTID', 'Test\DbTestController@queryTransactionInDb');
 Route::get('/dbtestQGIR', 'Test\DbTestController@queryGetInRedis');
 Route::get('/dbtestSIR', 'Test\DbTestController@setInRedis');
 Route::get('/dbtestUILIR', 'Test\DbTestController@updateIndexListInRedis');
+
+Route::get('/contact/{id}', 'ContactController@retrieve');

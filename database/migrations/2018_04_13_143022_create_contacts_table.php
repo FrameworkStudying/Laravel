@@ -14,10 +14,12 @@ class CreateContactsTable extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('r_id');
+            // Add uuid column in DB table
+            $table->uuid('uuid');
             $table->string('firstname', 30);
             $table->string('lastname', 30);
-            $table->boolean('is_regular')->default(0);
+            $table->boolean('is_regular')->default(false);
             $table->timestamps();
         });
     }
